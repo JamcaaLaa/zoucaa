@@ -1,0 +1,24 @@
+{
+  "name": "@jamcaa/zoucaa",
+  "private": true,
+  "version": "0.1.0",
+  "description": "饮茶先啦。",
+  "type": "module",
+  "author": "onsummer",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamcaaLaa/zoucaa.git"
+  },
+  "engines": {
+    "node": ">=16.11.0"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./Source/Cesium.js"
+    }
+  },
+  "scripts": {},
+  "keywords": []
+}
