@@ -14,10 +14,7 @@
     "node": ">=16.11.0"
   },
   "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "import": "./Source/Cesium.js"
-    }
+    "./package.json": "./package.json"
   },
   "scripts": {},
   "keywords": []
