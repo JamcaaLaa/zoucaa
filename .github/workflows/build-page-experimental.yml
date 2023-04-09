@@ -44,4 +44,9 @@ jobs:
       # 查看构建后的文件
       - name: View Files
         run: ls ./pages/dist -a
+
+      - run: git checkout gh-pages
+      - run: mv ./pages/dist/* ./docs
+      - run: git add ./docs
+      - run: git commit -m "pages update"
         
