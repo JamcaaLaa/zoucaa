@@ -10,11 +10,19 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+        
     steps:
       # https://github.com/actions/checkout
       # 拉取代码
       - name: Checkout codes
         uses: actions/checkout@v3
+
+      # https://github.com/pnpm/action-setup
+      # 安装 pnpm 在先，否则 nodejs 无法识别 pnpm 缓存
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       # https://github.com/actions/setup-node
       # 安装 node 并缓存 pnpm
@@ -23,13 +31,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-
-      # https://github.com/pnpm/action-setup
-      # 安装 pnpm
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
 
       # https://pnpm.io/zh/cli/install#--frozen-lockfile
       # 使用 pnpm 安装依赖
