@@ -1,0 +1,28 @@
+{
+  "name": "pages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cesium": "1.104",
+    "vue": "3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.2.1",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-externals": "^0.6.2",
+    "vite-plugin-insert-html": "^1.0.1",
+    "vite-plugin-static-copy": "^0.13.1",
+    "vue-tsc": "^1.2.0"
+  }
+}
