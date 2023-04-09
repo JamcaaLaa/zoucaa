@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
-        
+
     steps:
       # https://github.com/actions/checkout
       # 拉取代码
@@ -30,13 +30,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
 
       # https://pnpm.io/zh/cli/install#--frozen-lockfile
       # 使用 pnpm 安装依赖
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile --ignore-scripts
-  
+
       # 构建
       - name: Build Test
         run: pnpm --filter pages build
@@ -45,8 +45,8 @@ jobs:
       - name: View Files
         run: ls ./pages/dist -a
 
-      - run: git checkout gh-pages
-      - run: mv ./pages/dist/* ./docs
-      - run: git add ./docs
-      - run: git commit -m "pages update"
-        
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./pages/dist
