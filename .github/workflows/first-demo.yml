@@ -38,12 +38,5 @@ jobs:
       - name: View files
         run: ls -a
 
-      - name: Change Dir
-        run: cd ./pages
-
-      - name: View files
-        run: ls -a
-      
       - name: BuildPage
-        run: pnpm build
-  
+        run: cd ./pages && ls -a && pnpm build
