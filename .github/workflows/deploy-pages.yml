@@ -1,8 +1,8 @@
-name: BuildPageExperimental
+name: Deploy Pages
 
 on:
   push:
-    branches: ["test-action"]
+    branches: ["pages"]
 
 jobs:
   build:
@@ -39,12 +39,14 @@ jobs:
 
       # 构建
       - name: Build Test
-        run: pnpm --filter pages build
+        run: pnpm --filter zoucaa-page build
 
       # 查看构建后的文件
       - name: View Files
         run: ls ./pages/dist -a
 
+      # https://github.com/peaceiris/actions-gh-pages@v3
+      # 发布 GitHub page 页面
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

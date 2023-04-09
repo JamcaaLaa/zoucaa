@@ -1,5 +1,5 @@
 {
-  "name": "pages",
+  "name": "zoucaa-page",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,8 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "onsummer",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "cesium": "1.104",
     "vue": "3.2"
