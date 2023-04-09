@@ -1,21 +1,33 @@
 name: GitHub Actions Demo
-on: 
+
+on:
   push:
-jobs: 
+    branches: ["master"]
+
+jobs:
   Pages:
     runs-on: ubuntu-latest
     steps:
-    # 迁出触发的流程的版本 能让下面的工作流程访问
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-    - name: Install dependencies
-      run: pnpm install
+      # https://github.com/actions/checkout
+      # 拉取代码
+      - name: Checkout codes
+        uses: actions/checkout@v3
+
+      # https://github.com/actions/setup-node
+      # 安装 node
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      # https://github.com/pnpm/action-setup
+      # 安装 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      # https://pnpm.io/zh/cli/install#--frozen-lockfile
+      # 使用 pnpm 安装依赖
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile --ignore-scripts
