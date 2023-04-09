@@ -10,7 +10,7 @@ export default defineConfig((context) => {
   const mode = context.mode
   const envDir = 'env'
   const env = loadEnv(mode, envDir)
-  const base = '/'
+  const base = env['BASE_URL']
   const cesiumBaseUrl = env['VITE_CESIUM_BASE_URL']
   const isProd = mode === 'production'
 
