@@ -32,17 +32,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile --ignore-scripts
   
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - name: View Dir
         run: pwd
 
       - name: View files
-        run: ls
+        run: ls -a
 
       - name: Change Dir
-        run: cd pages
+        run: cd ./pages
       
       - name: BuildPage
         run: pnpm build
+  
