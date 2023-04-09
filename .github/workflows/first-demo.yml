@@ -31,3 +31,9 @@ jobs:
       # 使用 pnpm 安装依赖
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile --ignore-scripts
+
+      - name: Change Dir
+        run: cd pages
+      
+      - name: BuildPage
+        run: pnpm build
