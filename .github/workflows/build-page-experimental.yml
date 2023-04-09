@@ -43,5 +43,5 @@ jobs:
 
       # 查看构建后的文件
       - name: View Files
-        run: ls ./pages/dist
+        run: ls ./pages/dist -a
         
