@@ -32,11 +32,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile --ignore-scripts
   
-      - name: View Dir
-        run: pwd
+      # 构建
+      - name: Build Test
+        run: pnpm --filter pages build
 
-      - name: View files
-        run: ls -a
-
-      - name: BuildPage
-        run: cd ./pages && ls -a && pnpm build
+      # 查看构建后的文件
+      - name: View Files
+        run: ls ./pages/dist
+        
