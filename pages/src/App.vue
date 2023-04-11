@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { TileMapServiceImageryProvider, Viewer, buildModuleUrl } from 'cesium'
+import { useDefaultChinaRect } from '@jamcaalaa/hagao'
 import 'cesium/Build/CesiumUnminified/Widgets/widgets.css'
 
 const viewerDivRef = ref<HTMLDivElement>()
@@ -18,6 +19,7 @@ window.CESIUM_BASE_URL = cesiumBaseUrl
 console.log(`模式: ${mode}, CESIUM_BASE_URL: ${cesiumBaseUrl}`)
 
 onMounted(() => {
+  useDefaultChinaRect()
   viewer = new Viewer(viewerDivRef.value as HTMLElement, {
     imageryProvider: new TileMapServiceImageryProvider({
       // 对于 CESIUM_BASE_URL 下的静态资源，推荐用 buildModuleUrl 获取

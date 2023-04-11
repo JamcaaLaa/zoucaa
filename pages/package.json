@@ -11,6 +11,7 @@
   "author": "onsummer",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@jamcaalaa/hagao": "workspace:^0.0.0",
     "cesium": "1.104",
     "vue": "3.2"
   },
