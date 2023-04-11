@@ -63,6 +63,7 @@ export default defineConfig((context) => {
     build: {
       chunkSizeWarningLimit: 1024 * 1024,
       reportCompressedSize: false,
+      sourcemap: true,
     },
     resolve: {
       alias: {
