@@ -5,6 +5,7 @@ import { viteExternalsPlugin } from 'vite-plugin-externals'
 import { insertHtml, h } from 'vite-plugin-insert-html'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import compress from 'vite-plugin-compression'
+import { copy404HtmlPlugin } from './plugins/copy-404html'
 
 export default defineConfig((context) => {
   const mode = context.mode
@@ -27,6 +28,7 @@ export default defineConfig((context) => {
         })
       ]
     }),
+    copy404HtmlPlugin(),
   ]
   if (!isProd) {
     // 开发模式，复制 node_modules 下的 cesium 依赖
