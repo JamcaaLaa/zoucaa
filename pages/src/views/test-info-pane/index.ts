@@ -1,0 +1,1 @@
+export { default as TestInfoPane } from './index.vue'
