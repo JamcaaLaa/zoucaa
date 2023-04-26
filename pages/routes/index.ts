@@ -9,12 +9,12 @@ export const routes = createRouter({
   routes: [
     {
       path: '/',
-      name: 'root',
+      name: 'Root',
       component: Root
     },
     {
       path: '/test',
-      name: 'test',
+      name: 'Test',
       component: TestInfoPane
     }
   ]

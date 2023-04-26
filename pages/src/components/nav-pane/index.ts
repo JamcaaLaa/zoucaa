@@ -1,0 +1,1 @@
+export { default as NavPane } from './index.vue'

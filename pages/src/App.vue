@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
 import { MapEngine } from '@/components/map-engine'
+import { NavPane } from '@/components/nav-pane'
 </script>
 
 <template>
   <MapEngine>
     <template #router-view>
-      <RouterView />
+      <NavPane />
     </template>
   </MapEngine>
 </template>

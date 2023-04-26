@@ -1,7 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+</script>
 
 <template>
-  <div style="position: absolute; top: 50px; left: 50px; color: aliceblue; z-index: 3;">
-    Root
+  <div>
+    {{ String(route.name) }}
   </div>
 </template>
