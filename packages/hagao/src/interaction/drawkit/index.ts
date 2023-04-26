@@ -226,6 +226,9 @@ class DrawKit {
   end() {
     this.status = false
     this.drawType = undefined
+    const viewer = this.viewer
+    const entities = viewer.entities
+    entities.removeById('movePoint')
 
     for (const [_, h] of this.handlers) {
       h.destroy()
