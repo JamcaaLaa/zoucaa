@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onMounted, provide, ref, shallowRef } from 'vue'
-import { ArcGisMapServerImageryProvider, Ellipsoid, EllipsoidTerrainProvider, TileMapServiceImageryProvider, Viewer, buildModuleUrl } from 'cesium'
-import { useDefaultChinaRect, useGuangxiRect } from '@jamcaalaa/hagao'
-import 'cesium/Build/CesiumUnminified/Widgets/widgets.css'
+import { ImageryLayer, UrlTemplateImageryProvider, Viewer } from 'cesium'
+import { useDefaultChinaRect } from '@jamcaalaa/hagao'
 import { CESIUM_VIEWER } from '.'
+
+import 'cesium/Build/CesiumUnminified/Widgets/widgets.css'
 
 const viewerDivRef = ref<HTMLDivElement>()
 const viewerRef = shallowRef<Viewer>()
@@ -17,19 +18,28 @@ const sourceCesiumBaseUrl = import.meta.env.VITE_CESIUM_BASE_URL
 const cesiumBaseUrl = mode === 'development' ? `${sysBaseUrl}${sourceCesiumBaseUrl}` : sourceCesiumBaseUrl
 window.CESIUM_BASE_URL = cesiumBaseUrl
 
-console.log(`模式: ${mode}, CESIUM_BASE_URL: ${cesiumBaseUrl}`)
 provide(CESIUM_VIEWER, viewerRef)
+console.log(`模式: ${mode}, CESIUM_BASE_URL: ${cesiumBaseUrl}`)
 
-onMounted(async () => {
-  useGuangxiRect()
+onMounted(() => {
+  useDefaultChinaRect()
   viewerRef.value = new Viewer(viewerDivRef.value as HTMLElement, {
     infoBox: false,
     selectionIndicator: false,
     msaaSamples: 4,
-    imageryProvider: new TileMapServiceImageryProvider({
-      // 对于 CESIUM_BASE_URL 下的静态资源，推荐用 buildModuleUrl 获取
-      url: buildModuleUrl('Assets/Textures/NaturalEarthII'),
-    }),
+    timeline: false,
+    animation: false,
+    sceneModePicker: false,
+    scene3DOnly: true,
+    baseLayer: new ImageryLayer(new UrlTemplateImageryProvider({
+      url: 'https://gac-geo.googlecnapps.cn/maps/vt/lyrs=s&hl=zh-CN&gl=cn&x={x}&y={y}&z={z}',
+      maximumLevel: 18,
+    }), {}),
+    geocoder: false,
+    navigationHelpButton: false,
+    projectionPicker: false,
+    requestRenderMode: true,
+    creditContainer: 'none-credit'
   })
 })
 </script>
@@ -37,11 +47,16 @@ onMounted(async () => {
 <template>
   <slot name="router-view"></slot>
   <div id="cesium-viewer" ref="viewerDivRef"></div>
+  <div id="none-credit"></div>
 </template>
 
 <style scoped>
 #cesium-viewer {
   width: 100%;
   height: 100%;
+}
+
+#none-credit {
+  display: none;
 }
 </style>
