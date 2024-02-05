@@ -1,8 +1,9 @@
 {
   "name": "zoucaa-page",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -11,19 +12,19 @@
   "author": "onsummer",
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@jamcaalaa/hagao": "workspace:^0.0.0",
-    "cesium": "~1.105.1",
-    "vue": "3.2",
-    "vue-router": "^4.1.6"
+    "@jamcaalaa/hagao": "workspace:^0.0.1",
+    "cesium": "1.114.0",
+    "vue": "~3.2.47",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.1.0",
-    "typescript": "^5.0.4",
-    "vite": "^4.2.1",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-externals": "^0.6.2",
-    "vite-plugin-insert-html": "^1.0.1",
-    "vite-plugin-static-copy": "^0.13.1",
-    "vue-tsc": "^1.2.0"
+    "vite-plugin-insert-html": "^1.0.2",
+    "vite-plugin-static-copy": "^1.0.1",
+    "vue-tsc": "^1.8.27"
   }
 }

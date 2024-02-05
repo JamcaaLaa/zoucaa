@@ -1,6 +1,6 @@
 {
   "name": "@jamcaalaa/hagao",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "author": {
     "name": "onsummer"
@@ -15,10 +15,10 @@
     }
   },
   "peerDependencies": {
-    "cesium": "1.104.0"
+    "cesium": "1.114.0"
   },
   "devDependencies": {
-    "cesium": "1.104",
-    "typescript": "^5.0.4"
+    "cesium": "~1.114.0",
+    "typescript": "^5.3.3"
   }
 }

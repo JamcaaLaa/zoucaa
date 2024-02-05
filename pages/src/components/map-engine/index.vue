@@ -41,6 +41,9 @@ onMounted(() => {
     requestRenderMode: true,
     creditContainer: 'none-credit'
   })
+  const viewer = viewerRef.value
+  viewer.scene.globe.depthTestAgainstTerrain = true
+  viewer.scene.debugShowFramesPerSecond = true
 })
 </script>
 
